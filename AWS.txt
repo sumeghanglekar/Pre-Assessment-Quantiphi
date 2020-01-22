@@ -1,83 +1,0 @@
-Q. No.Assessment Questions (AWS)1Create IAM Policy which grants access to S3 bucket Only.2What will be the outcome of this IAM Policy?
-{
-"Version": "2012-10-17",
-"Statement": [{
-"Action": "ec2:*",
-"Resource": "*",
-"Effect": "Allow"
-},
-{
-"Action": "*",
-"Resource": "*",
-"Effect": "Deny"
-}
-]
-}3Steps to launch EC2 Instance4Steps for Hosting a Static Website on Amazon S35Steps to create public and private subnets in VPC
-Answers:
-1.  Create IAM Policy which grants access to S3 bucket only.
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": “s3.*”
-            "Resource": "*"
-        }
-        {
-            "Effect": "Deny",
-            "Action": "*",
-            "Resource": “*”
-            ]
-        }
-    ]
-}
-2. What will be the outcome of this IAM Policy 
-For the action of EC2 instance using any resources, will be allowed adnt for any other actions using any other resources will be denied according to the IAM Policy.
-
-3. Steps to launch EC2 Instance
-1) Log in to AWS Management Console
-2) Select Region
-3) Click EC2 under compute section
-4) Select Launch instance and select the AMI (Amazon Machine Image) 
-5) Select instance type (computing power config etc.)
-6) Configure all details and add storage
-7) Tag Instance (key, value)
-8) Configure security group (add ports etc.)
-9) Check all settings and launch instance
-10) Download key pair
-11) Select instance and click connect
-12) Copy Public IP address and click get password
-13) Get the password(decrypt) by providing the key pair
-14) Use the Public IP and Password and login to the instance using the Remote Desktop Connection on Windows
-
-4. Steps for Hosting a Static Website on Amazon S3	
-1) Go to AWS Console
-2) Select S3
-3) Create Bucket: Name the bucket and select region
-4) Verify the created bucket
-5) Click on bucket properties 
-6) Click static website hosting option
-7) Select use this bucket to host a website
-8) Enter index.html as Index Document
-9) Add a CNAME record with key as CNAME and value as the url (optional)
-10) Upload the file and make it public
-11) Verify the website (By using the url or the link in the properties tab of html file)
-
-
-
-5. Steps to create public and private subnets in VPC
-
-1) Navigate to VPC and click on Create VPC
-2) Name the VPC, mention the IPv4 CIDR Block and click Create
-3)  To create subnets, navigate to Subnets and select the VPC
-4) Create a subnet named Private: Select VPC, Availability Zone, IPv4 CIDR Block and click create
-5) Create a subnet named Public the similar way as above
-6) To make the subnet public create an internet gateway
-7) Navigate to internet gateways, click on create internet gateway
-8) Select the VPC for which you want to attach your Internet Gateway. Click on Attach.
-9) To manage traffic using route tables, navigate to route table and click on create a route table
-10)  Name the route table and select the VPC for which the rote table is created and click create
-11)  Click on add routes and mention the destination 0.0.0.0/0 (Public) and select the target gateway
-12)  Attach the public subnet to the route table. Select the public subnet and navigate to route table and click on edit route table association
-13)  Select the route table and save
-14)  Thus, creating a public and private subnet in VPC.
